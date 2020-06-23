@@ -20,12 +20,12 @@ with open(path.join(this_directory, "README.rst")) as f:
     long_description = f.read()
 
 setup(
-    name="certbot_dns_shellrent",
+    name="certbot-dns-shellrent",
     version=version,
     description="shellrent DNS Authenticator plugin for Certbot",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    url="https://github.com/shellrent/certbot_dns_shellrent",
+    url="https://github.com/shellrent/certbot-dns-shellrent",
     author="Shellrent",
     author_email="info@shellrent.com",
     license="Apache License 2.0",
