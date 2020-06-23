@@ -1,0 +1,4 @@
+.vscode
+dist
+build
+certbot_dns_shellrent.egg-info
