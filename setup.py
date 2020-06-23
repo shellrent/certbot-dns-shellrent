@@ -1,7 +1,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-version = "0.0.2"
+version = "0.1.0"
 
 install_requires = [
     "acme>=0.29.0",
@@ -31,7 +31,7 @@ setup(
     license="Apache License 2.0",
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
     classifiers=[
-        "Development Status :: Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Plugins",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved :: Apache Software License",
