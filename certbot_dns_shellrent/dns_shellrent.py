@@ -185,9 +185,9 @@ class _ShellrentClient(object):
         purchases_list = self._api_request("purchase", "GET", "")
         
         for purchase in purchases_list["data"]:
-            purchase_detail = self._api_request("/purchase/details/"+ purchase , "GET", "")
+            purchase_detail = self._api_request("purchase/details/"+ purchase , "GET", "")
             if "domain_id" in purchase_detail["data"]:
-                domain_detail = self._api_request("/domain/details/" + str(purchase_detail["data"]["domain_id"])  , "GET", "")
+                domain_detail = self._api_request("domain/details/" + str(purchase_detail["data"]["domain_id"])  , "GET", "")
                 for zone_name in zone_dns_name_guesses:
                     # get the zone id
                     if zone_name == domain_detail["data"]["domain_name"]:
