@@ -24,7 +24,7 @@ setup(
     version=version,
     description="shellrent DNS Authenticator plugin for Certbot",
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
     url="https://github.com/shellrent/certbot-dns-shellrent",
     author="Shellrent",
     author_email="info@shellrent.com",
