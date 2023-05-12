@@ -31,12 +31,12 @@ To start using DNS authentication for shellrent, pass the following arguments on
 certbot's command line:
 
 ============================================================= ==============================================
-``--authenticator certbot-dns-shellrent:dns-shellrent``          select the authenticator plugin (Required)
+``--authenticator dns-shellrent``          select the authenticator plugin (Required)
 
-``--certbot-dns-shellrent:dns-shellrent-credentials``         shellrent Remote User credentials
+``--dns-shellrent-credentials``         shellrent Remote User credentials
                                                               INI file. (Required)
 
-``--certbot-dns-shellrent:dns-shellrent-propagation-seconds`` | waiting time for DNS to propagate before asking
+``--dns-shellrent-propagation-seconds`` | waiting time for DNS to propagate before asking
                                                               | the ACME server to verify the DNS record.
                                                               | (Default: 10, Recommended: >= 600)
 ============================================================= ==============================================
@@ -52,12 +52,12 @@ An example ``credentials.ini`` file:
 
 .. code-block:: ini
 
-   certbot_dns_shellrent:dns_shellrent_username = myremoteuser
-   certbot_dns_shellrent:dns_shellrent_token = verysecureremoteusertoken
-   certbot_dns_shellrent:dns_shellrent_endpoint = https://manager.shellrent.com/api2
+   dns_shellrent_username = myremoteuser
+   dns_shellrent_token = verysecureremoteusertoken
+   dns_shellrent_endpoint = https://manager.shellrent.com/api2
 
 The path to this file can be provided interactively or using the
-``--certbot-dns-shellrent:dns-shellrent-credentials`` command-line argument. Certbot
+``--dns-shellrent-credentials`` command-line argument. Certbot
 records the path to this file for use during renewal, but does not store the
 file's contents.
 
@@ -85,9 +85,9 @@ To acquire a single certificate for both ``example.com`` and
 .. code-block:: bash
 
    certbot certonly \
-     --authenticator certbot-dns-shellrent:dns-shellrent \
-     --certbot-dns-shellrent:dns-shellrent-credentials /etc/letsencrypt/.secrets/domain.tld.ini \
-     --certbot-dns-shellrent:dns-shellrent-propagation-seconds 900 \
+     --authenticator dns-shellrent \
+     --dns-shellrent-credentials /etc/letsencrypt/.secrets/domain.tld.ini \
+     --dns-shellrent-propagation-seconds 900 \
      --server https://acme-v02.api.letsencrypt.org/directory \
      --agree-tos \
      --rsa-key-size 4096 \
@@ -117,9 +117,9 @@ Once that's finished, the application can be run as follows::
        -v /etc/letsencrypt:/etc/letsencrypt \
        --cap-drop=all \
        certbot/dns-shellrent certonly \
-       --authenticator certbot-dns-shellrent:dns-shellrent \
-       --certbot-dns-shellrent:dns-shellrent-propagation-seconds 900 \
-       --certbot-dns-shellrent:dns-shellrent-credentials \
+       --authenticator dns-shellrent \
+       --dns-shellrent-propagation-seconds 900 \
+       --dns-shellrent-credentials \
            /etc/letsencrypt/.secrets/domain.tld.ini \
        --no-self-upgrade \
        --keep-until-expiring --non-interactive --expand \
